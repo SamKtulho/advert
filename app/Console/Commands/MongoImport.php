@@ -51,7 +51,6 @@ class MongoImport extends Command
         $interpreter->addObserver(function(array $columns) use(&$i) {
             ++$i;
             if ($columns[0] === 'simple_sku') return;
-            if ($i > 10) die('!!!');
             $resUrl = '';
             $url = (explode('&', parse_url($columns[14], PHP_URL_QUERY)));
             foreach ($url as $item) {
