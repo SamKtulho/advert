@@ -18,7 +18,7 @@ class RedirectController extends Controller
         }
 
         $advert = Advert::find($params['aff_sub1']);
-        unset($params['aff_sub1']);
+       // unset($params['aff_sub1']);
 
         if (!$advert) {
             return redirect(Affiliate::getDefaultRedirectUrl());
