@@ -12,5 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(\App\Services\Affiliate::getDefaultRedirectUrl());
 });
+
+Route::get('/{keyword}', 'RedirectController@index');
