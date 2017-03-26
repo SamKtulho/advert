@@ -16,9 +16,9 @@ class RedirectController extends Controller
         if (empty($params['aff_sub1'])) {
             return redirect(Affiliate::getDefaultRedirectUrl());
         }
-
-        $advert = Advert::find($params['aff_sub1']);
-       // unset($params['aff_sub1']);
+        $id = $params['aff_sub1'];
+        $advert = Advert::find($id);
+        unset($params['aff_sub1']);
 
         if (!$advert) {
             return redirect(Affiliate::getDefaultRedirectUrl());
@@ -27,7 +27,7 @@ class RedirectController extends Controller
         if (!empty($advert->status) && $advert->status == 1) {
             $url = $advert->url . '?' . http_build_query($params);
 
-            return redirect(Affiliate::DEFAULT_LAZADA_URI . '/' . Affiliate::DEFAULT_LAZADA_CODE . '?url=' . urlencode($url));
+            return redirect(Affiliate::DEFAULT_LAZADA_URI . '/' . Affiliate::DEFAULT_LAZADA_CODE . '?url=' . urlencode($url) . '&aff_sub=' . $id);
         }
         return Response::make('', 200);
     }
