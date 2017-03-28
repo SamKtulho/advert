@@ -25,7 +25,7 @@ class RedirectController extends Controller
         }
 
         if (!empty($advert->status) && $advert->status == 1) {
-            $url = $advert->url . '?' . http_build_query(Affiliate::getRequiredParams());
+            $url = $advert->url . '?' . urldecode(http_build_query(Affiliate::getRequiredParams()));
 
             return redirect(Affiliate::DEFAULT_LAZADA_URI . '/' . Affiliate::DEFAULT_LAZADA_CODE . '?url=' . urlencode($url) . '&aff_sub=' . $id . (!empty($params['utm_campaign']) ? '&aff_sub2=' . $params['utm_campaign'] : '') . '&' . http_build_query($params));
         }
