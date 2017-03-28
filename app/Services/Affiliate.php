@@ -18,7 +18,8 @@ class Affiliate {
         'affiliate_id' => '{affiliate_id}',
         'offer_name' => '{offer_name}_{offer_file_id}',
         'affiliate_name' => '{affiliate_name}',
-        'transaction_id' => '{transaction_id}'
+        'transaction_id' => '{transaction_id}',
+        'aff_source' => '{source}'
     ];
 
     /**
