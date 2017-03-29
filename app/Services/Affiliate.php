@@ -32,6 +32,6 @@ class Affiliate {
 
     public static function getDefaultRedirectUrl()
     {
-        return self::DEFAULT_LAZADA_URI . '/' . self::DEFAULT_LAZADA_CODE . '?url=' . urlencode('http://lazada.vn?' . http_build_query(self::$requiredParams));
+        return self::DEFAULT_LAZADA_URI . '/' . self::DEFAULT_LAZADA_CODE . '?url=' . urlencode('http://lazada.vn?' . urldecode(http_build_query(self::$requiredParams)));
     }
 }
